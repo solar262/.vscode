@@ -79,9 +79,9 @@ def launch_tiktok_browser(status_callback: StatusCallback) -> BrowserSession:
     status_callback(OPENING_STATUS)
     os.makedirs(BROWSER_PROFILE_DIR, exist_ok=True)
 
-    try:
-        from playwright.sync_api import sync_playwright
+    from playwright.sync_api import sync_playwright
 
+    try:
         playwright = sync_playwright().start()
         context = playwright.chromium.launch_persistent_context(
             user_data_dir=BROWSER_PROFILE_DIR,
